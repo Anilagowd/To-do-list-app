@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To-Do List</title>
+  <style>
+    /* Add some basic styling for better presentation */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>To-Do List</h2>
+
+  <ul id="todoList">
+    <li><input type="checkbox"> Task 1</li>
+    <li><input type="checkbox"> Task 2</li>
+    <li><input type="checkbox"> Task 3</li>
+    <!-- Add more tasks as needed -->
+  </ul>
+
+  <!-- Optionally, you can add a form to add new tasks -->
+  <form id="addTaskForm">
+    <label for="newTask">Add new task:</label>
+    <input type="text" id="newTask" name="newTask" required>
+    <button type="button" onclick="addTask()">Add</button>
+  </form>
+
+  <script>
+    // JavaScript function to add a new task to the list
+    function addTask() {
+      var newTaskInput = document.getElementById("newTask");
+      var todoList = document.getElementById("todoList");
+
+      // Check if the input is not empty
+      if (newTaskInput.value.trim() !== "") {
+        var newTask = document.createElement("li");
+        newTask.innerHTML = '<input type="checkbox"> ' + newTaskInput.value;
+        todoList.appendChild(newTask);
+
+        // Clear the input field after adding the task
+        newTaskInput.value = "";
+      }
+    }
+  </script>
+
+</body>
+</html>
